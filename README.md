@@ -52,13 +52,11 @@ pnpm dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## Tax Calculation Formulas
-
-PayWise calculates income tax based on the latest Pakistan tax regulations for 2024-2025, with different tax structures for income earned in PKR and income earned in USD (foreign remittance).
+## Pakistan Income Tax Calculation (2024-2025)
 
 ### For Income Earned in PKR
 
-The following tax slabs apply to income earned in Pakistani Rupees:
+The following tax slabs apply to salary income earned in Pakistani Rupees:
 
 | Annual Income (PKR)    | Tax Rate                                    |
 | ---------------------- | ------------------------------------------- |
@@ -76,11 +74,30 @@ For an annual income of PKR 1,500,000:
 - Tax would be: 30,000 + 15% of (1,500,000 - 1,200,000)
 - 30,000 + 15% of 300,000 = 30,000 + 45,000 = PKR 75,000
 
-### For Income Earned in USD (Foreign Remittance)
+### For Foreign-Source Income (USD)
 
-Foreign remittances to Pakistan have different tax implications. The calculator considers the applicable tax rates after converting USD amounts to PKR using the current exchange rate.
+For resident individuals receiving foreign-source salary, the tax treatment depends on whether foreign income tax has been paid on that salary:
 
-When using the USD to PKR conversion feature, PayWise automatically applies the correct tax calculations based on Pakistani tax laws for foreign income.
+- **Foreign Tax Paid**: If foreign income tax has been paid on the foreign-source salary, it is exempt from tax in Pakistan.
+- **No Foreign Tax Paid**: If no foreign income tax has been paid, the foreign-source salary is taxable in Pakistan using the same tax slabs as local income.
+
+A tax credit is available for any foreign income tax paid, equal to the lesser of the foreign income tax paid or the Pakistan tax payable on that income.
+
+#### Example Calculation (USD to PKR)
+
+Assuming a foreign-source salary of USD 50,000 and an exchange rate of 1 USD = PKR 300:
+
+1. Annual income in PKR: 50,000 × 300 = PKR 15,000,000
+2. Tax calculation:
+   - Up to PKR 600,000: No tax = PKR 0
+   - Next PKR 600,000 (600,001 to 1,200,000): 5% of 600,000 = PKR 30,000
+   - Next PKR 1,000,000 (1,200,001 to 2,200,000): 15% of 1,000,000 = PKR 150,000
+   - Next PKR 1,000,000 (2,200,001 to 3,200,000): 25% of 1,000,000 = PKR 250,000
+   - Next PKR 900,000 (3,200,001 to 4,100,000): 30% of 900,000 = PKR 270,000
+   - Remaining PKR 10,900,000 (above 4,100,000): 35% of 10,900,000 = PKR 3,815,000
+3. Total tax liability: PKR 30,000 + 150,000 + 250,000 + 270,000 + 3,815,000 = PKR 4,515,000
+
+Therefore, on a salary of USD 50,000 (equivalent to PKR 15,000,000), the income tax payable in Pakistan would be PKR 4,515,000, provided no foreign income tax has been paid.
 
 ## Deployment
 
